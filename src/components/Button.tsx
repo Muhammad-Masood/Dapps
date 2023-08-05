@@ -6,7 +6,8 @@ import { contractAbi, contractAddress } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 export const ButtonComponent = () => {
-    const provider = new ethers.BrowserProvider((window as any).ethereum);
+    const isBrowser = typeof window !== 'undefined';
+  const provider = isBrowser? new ethers.BrowserProvider((window as any).ethereum) : new ethers.JsonRpcProvider;
     const contract = new Contract(contractAddress,contractAbi,provider);
     const [message,setMessage] = useState("View Message");
     const [greetValue,setGreetValue] = useState('');
