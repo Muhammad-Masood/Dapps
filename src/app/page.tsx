@@ -1,22 +1,23 @@
+"use client"
 import Image from 'next/image'
-import { Button } from "../../components/ui/button"
-import { Input } from "../../components/ui/input";
-import { buttonVariants } from '../../components/ui/button';
+import { ButtonComponent } from '@/components/Button';
+import { ethers } from 'ethers';
+import { useEffect } from 'react';
+import { ConnectWallet } from '@/components/connect-wallet';
 
 export default function Home() {
   return (
-    <div className="h-screen flex-col items-center justify-center flex">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl  text-center">
+    <div>
+      <ConnectWallet/>
+    <div className=" flex-col items-center justify-center flex">
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-wide lg:text-5xl text-center text-gray-300">
         Greet Dapp
       </h1>
-      <p className="leading-7 [&:not(:first-child)]:mt-6 text-center">
+      <p className="leading-7 [&:not(:first-child)]:mt-6 text-center text-slate-300">
         Using Our Mini Greet Dapp, You Can Write and View Your Messages and Greets On The Blockchain.
       </p>
-      <div className="flex w-full max-w-sm items-center space-x-2 m-8">
-      <Input type="text" placeholder="Enter Your Message" />
-      <Button className="bg-slate-950 text-white hover:bg-black transition-all duration-300 rounded-xl w-3/12" type="submit">Greet</Button>
+      <ButtonComponent/>
     </div>
-      <Button className='bg-slate-300 hover:bg-slate-400 transition-all duration-300 rounded-lg'>View Message</Button>
     </div>
   )
 }

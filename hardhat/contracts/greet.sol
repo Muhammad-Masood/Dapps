@@ -6,6 +6,7 @@ pragma solidity ^0.8.18;
 
 contract Greet {
     string public message;
+
     mapping (address => string) public userMessage;
 
     constructor(){
